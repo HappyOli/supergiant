@@ -64,6 +64,7 @@ func (p *Provider) CreateNode(m *model.Node, action *core.Action) error {
 	}
 
 	// Create server
+	server, err := servers.Create(computeClient, createOpts).Extract()
 	if err != nil {
 		return err
 	}

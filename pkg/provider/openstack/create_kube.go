@@ -351,6 +351,7 @@ func (p *Provider) CreateKube(m *model.Kube, action *core.Action) error {
 				KeyName:           m.OpenStackConfig.KeyPair,
 			}
 			p.Core.Log.Debug(m.OpenStackConfig.ImageName)
+			masterServer, err := servers.Create(computeClient, createOpts).Extract()
 			if err != nil {
 				return err
 			}
